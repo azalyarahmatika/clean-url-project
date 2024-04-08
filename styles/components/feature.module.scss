@@ -1,0 +1,61 @@
+@use '../abstracts/color';
+@use '../abstracts/mixins';
+
+.feature_container {
+  background: linear-gradient(
+    to bottom,
+    transparent 53.5%,
+    color.$primary-cyan 53.5% 56.5%,
+    transparent 56.5%
+  );
+  
+  color: color.$primary-dark-violet;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  .feature {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    flex-basis: 31%;
+    border-radius: 4px;
+    height: fit-content;
+    .feature_image {
+      background: color.$primary-dark-violet;
+      border-radius: 50%;
+      height: 80px;
+      width: 80px;
+      position: relative;
+      margin-top: -70px;
+
+      img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    h3 {
+      font-family: 'Poppins Bold';
+      margin-block: 1.8rem 0.8rem;
+    }
+    p {
+      font-size: 0.8rem;
+      color: color.$neutral-very-dark-blue;
+      text-align: start;
+      padding-bottom: 0;
+     
+    }
+  }
+
+  .feature[id='Detailed Records'] {
+    margin-top: 40px;
+  }
+
+  .feature[id='Fully Customizable'] {
+    margin-top: 80px;
+  }
+}

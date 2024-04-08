@@ -1,0 +1,104 @@
+@use '../abstracts/color';
+@use '../abstracts/mixins';
+
+$primary-red: rgb(253, 80, 80);
+
+.mainSection {
+  background: #F0F1F6;
+  padding: 0 9rem 120px;
+  position: relative;
+
+  .inputUrlForm {
+    padding-inline: 50px;
+    position: relative;
+    top: -50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 130px;
+    background-color: color.$primary-dark-violet;
+    background-image: url('../../images/bg-shorten-desktop.svg');
+    border-radius: 8px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    input {
+      height: 50px;
+      border-radius: 8px;
+      border: 8px;
+      font-size: 1rem;
+      
+    }
+
+    input::placeholder {
+      color: color.$neutral-gray;
+    }
+
+    .inputError:focus::placeholder {
+      color: transparent;
+    }
+
+    input[type='text'] {
+      margin-right: 30px;
+      width: 80%;
+      padding-left: 30px;
+      font-weight: 600;
+
+      &:focus {
+        outline: 3px solid color.$primary-cyan;
+        border: none;
+      }
+    }
+
+    input[type='submit'] {
+      font-weight: 700;
+      background-color: color.$primary-cyan;
+      width: 20%;
+      color: white;
+      cursor: pointer;
+
+      &:hover {
+        @include mixins.button;
+        color: white;
+      }
+    } 
+    
+    .error_message {
+      position: absolute;
+      top: 96px;
+      font-size: 0.8rem;
+      color:$primary-red;
+    }
+
+    .inputError {
+      border: 2px solid $primary-red;
+    }
+
+    .inputError::placeholder {
+      color: $primary-red;
+    }
+  }
+
+  h2, p {
+    text-align: center;
+  }
+  h2 {
+    font-family: 'Poppins Bold';
+    margin-block: 1.2rem 1rem;
+    color: color.$neutral-very-dark-blue;
+    font-size: 2rem;
+  }
+
+  p {
+    font-family: 'Poppins Medium';
+    font-size: 0.95rem;
+    color: color.$primary-dark-violet;
+    font-weight: 600;
+    opacity: 0.5;
+    letter-spacing: 0.2px;
+    padding-bottom: 100px;
+  }
+  
+}
+

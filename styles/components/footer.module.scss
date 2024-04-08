@@ -1,0 +1,50 @@
+@use '../abstracts/color';
+@use '../abstracts/mixins';
+
+.footer {
+  padding: 5rem 9rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: color.$neutral-very-dark-violet;
+
+  .footer_links {
+    color: white;
+    text-align: left;
+    font-family: "Poppins Medium";
+    font-size: 0.8rem;
+
+    table {
+      th {
+        font-family: "Poppins Bold";
+        font-size: 0.85rem;
+        padding: 0 36px 16px;
+      }
+
+      td {
+        padding: 4px 36px;
+        color: color.$neutral-gray;
+
+        &:hover {
+          color: color.$primary-cyan;
+          cursor: pointer;
+        }
+      } 
+    }
+  }
+
+  .footer_contact {
+    display: flex;
+    gap: 20px;
+
+    img {
+      height: 20px;
+      width: 20px;
+
+      &:hover {
+        color: color.$primary-cyan;
+        cursor: pointer;
+        filter: invert(50%) sepia(34%) saturate(3245%) hue-rotate(159deg) brightness(92%) contrast(101%);
+      }
+    }
+  }
+}

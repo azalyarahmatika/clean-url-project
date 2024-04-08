@@ -1,0 +1,31 @@
+@use '../abstracts/color';
+@use '../abstracts/mixins';
+
+.cta {
+  background-image: url('../../images/bg-boost-desktop.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: color.$primary-dark-violet;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 50px;
+
+  h2 {
+    font-family: 'Poppins Bold';
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  button {
+    @include mixins.list;
+      border: none;
+      background-color: color.$primary-cyan;
+      color: white;
+      font-size: 1rem;
+
+    &:hover {
+      @include mixins.button;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@use '../abstracts/color';
+@use '../abstracts/mixins';
+
+.header {
+  @include mixins.flex-horizontal;
+  padding: 1.8rem 0 140px 9rem;
+  font-family: 'Poppins Bold';
+
+  .header_slogan {
+    flex-basis: 50%;
+    
+    h1 {
+      padding-block: 0.6rem;
+      font-size: 3.3rem;
+      line-height: 3.5rem;
+      color: color.$primary-dark-violet;
+    }
+
+    p {
+      font-family: 'Poppins Medium';
+      color: color.$neutral-grayish-violet;
+      margin-bottom: 26px;
+    }
+
+    button {
+      @include mixins.list;
+      border: none;
+      background-color: color.$primary-cyan;
+      color: white;
+      font-size: 1rem;
+      
+      &:hover {
+        @include mixins.button;
+      }
+      
+    }
+  }
+
+  .header_jumbotron {
+    flex-basis: 50%;
+    overflow-x: hidden;
+
+    img {
+      width: 120%;
+      height: auto;
+    }
+  }
+  
+}

@@ -1,0 +1,32 @@
+@use '../abstracts/color';
+@use '../abstracts/mixins';
+
+.nav {
+  @include mixins.flex-horizontal;
+  padding: 1.8rem 9rem;
+  font-family: 'Poppins Bold';
+  
+  ul, .nav_menu {
+    @include mixins.flex-horizontal;
+  }
+
+  .nav_menu li, .nav_auth li {
+    @include mixins.list;
+    
+    &:hover {
+      color: color.$neutral-very-dark-violet;
+      cursor: pointer;
+      background: none;
+    }
+  }
+
+  .nav_auth .nav_auth_signUp {
+    background-color: color.$primary-cyan;
+    color: white;
+  
+    &:hover {
+      @include mixins.list;
+      @include mixins.button;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@use '../abstracts/color';
+
+@mixin flex-horizontal {
+  display: flex;
+  gap: 2.2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin list {
+  list-style: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: color.$neutral-grayish-violet;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+@mixin button {
+  color: white;
+  cursor: pointer;
+  background-color: #9CE2E2;
+}
