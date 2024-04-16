@@ -47,3 +47,20 @@
   }
   
 }
+
+@media screen and (max-width: 835px) {
+  .header {
+    flex-direction: column-reverse;
+    padding-left: 2rem;
+
+  }
+
+  .header_slogan {
+    text-align: center;
+    padding-right: 2rem;
+  }
+
+  .header_jumbotron {
+    width: 100%;
+  }
+}

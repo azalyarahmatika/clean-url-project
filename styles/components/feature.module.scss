@@ -9,19 +9,23 @@
     transparent 56.5%
   );
   
-  color: color.$primary-dark-violet;
   display: flex;
   justify-content: space-between;
   gap: 20px;
+
+  position: relative;
+  margin-bottom: 70px;
 
   .feature {
     background: white;
     display: flex;
     flex-direction: column;
     padding: 30px;
+    gap: 10px;
     flex-basis: 31%;
     border-radius: 4px;
     height: fit-content;
+    position: relative;
     .feature_image {
       background: color.$primary-dark-violet;
       border-radius: 50%;
@@ -42,20 +46,48 @@
       font-family: 'Poppins Bold';
       margin-block: 1.8rem 0.8rem;
     }
-    p {
-      font-size: 0.8rem;
+
+    .feature_description {
+      font-size: 0.9rem;
       color: color.$neutral-very-dark-blue;
       text-align: start;
       padding-bottom: 0;
-     
+      font-family: 'Poppins Medium';     
+      font-weight: 500;
     }
   }
 
   .feature[id='Detailed Records'] {
-    margin-top: 40px;
+    top: 50px;
+    
   }
 
   .feature[id='Fully Customizable'] {
-    margin-top: 80px;
+    top: 100px;
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  .feature_container {
+    background: linear-gradient(
+    to right,
+    transparent 49.5%,
+    color.$primary-cyan 49.5% 50.5%,
+    transparent 50.5% 
+    );
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .feature {
+    h3, h5 {
+      text-align: center;
+    }    
+    
+  }
+
+  .feature_image {
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

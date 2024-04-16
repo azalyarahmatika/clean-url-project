@@ -12,23 +12,25 @@
     text-align: left;
     font-family: "Poppins Medium";
     font-size: 0.8rem;
+    display: flex;
+    gap: 3rem;
 
-    table {
-      th {
-        font-family: "Poppins Bold";
-        font-size: 0.85rem;
-        padding: 0 36px 16px;
+    .footer_links_group {
+      text-align: left;
+
+      p {
+        line-height: 1.5rem;
       }
+    }
 
-      td {
-        padding: 4px 36px;
-        color: color.$neutral-gray;
+    p[id="link_header"] {
+      font-family: "Poppins Bold";
+      margin-bottom: 1.2rem;
+    }
 
-        &:hover {
-          color: color.$primary-cyan;
-          cursor: pointer;
-        }
-      } 
+    p:not([id="link_header"]):hover {
+      color: color.$primary-cyan;
+      cursor: pointer;
     }
   }
 
@@ -47,4 +49,24 @@
       }
     }
   }
+}
+
+@media screen and (max-width: 1065px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  .footer_links {
+    flex-direction: column;
+
+    .footer_links_group {
+      p {
+        text-align: center;
+      }
+      
+    }
+  }
+  
 }

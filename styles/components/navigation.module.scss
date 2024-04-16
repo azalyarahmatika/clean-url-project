@@ -3,6 +3,7 @@
 
 .nav {
   @include mixins.flex-horizontal;
+  position: relative;
   padding: 1.8rem 9rem;
   font-family: 'Poppins Bold';
   
@@ -28,5 +29,84 @@
       @include mixins.list;
       @include mixins.button;
     }
+  }
+  
+  
+}
+
+.nav_small {
+  display: none;
+}
+
+.nav_none {
+  display: none;
+}
+
+.nav_toggle {
+  display: block;
+  position: sticky;
+  padding: 2rem;
+  margin-inline: 9rem;
+  background: color.$primary-dark-violet;
+  color: white;
+  font-family: 'Poppins Bold';
+  text-align: center;
+  line-height: 3rem;
+  // margin-right: 9rem;
+  // width: 100%;
+  z-index: 200;
+
+  hr {
+    margin-block: 10px;
+  }
+
+  ul {
+    list-style: none;
+  }
+  // top: 100px;
+
+  .nav_auth_signUp {
+    background-color: color.$primary-cyan;
+    color: white;
+    border-radius: 50px;
+  
+    &:hover {
+      @include mixins.list;
+      @include mixins.button;
+    }
+  }
+}
+
+@media screen and (max-width: 1065px) {
+  .nav_menu ul {
+    display: none;
+  }
+
+  .nav_auth li {
+    display: none;
+  }
+
+ .nav_small {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    right: 9rem;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .nav {
+    padding: 1.8rem 2rem;
+  }
+
+  .nav_small {
+    right: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 835px) {
+  .nav_toggle {
+    margin-inline: 2rem;
   }
 }

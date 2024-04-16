@@ -12,7 +12,7 @@ function Feature({img, title, description}) {
         />
       </div>
       <h3>{title}</h3>
-      <p>{description}</p>
+      <p className={component.feature_description}>{description}</p>
     </div>
   );
 }

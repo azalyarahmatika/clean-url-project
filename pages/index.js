@@ -5,11 +5,13 @@ import CTASection from '../components/CTASection';
 import Footer from '../components/Footer';
 
 export default function Home() {
+  const apiKey = process.env.API_KEY
+    
   return (
     <>
       <Navigation />
       <Header />
-      <MainSection />
+      <MainSection apiKey={apiKey}/>
       <CTASection />
       <Footer />
     </> 
