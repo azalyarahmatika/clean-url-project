@@ -1,16 +1,15 @@
 import InputUrl from "./InputUrl";
-import component from '../styles/components/mainSection.module.scss';
 import FeatureHeading from "./FeatureHeading";
 import FeatureContainer from './FeatureContainer';
+import component from '../styles/components/mainSection.module.scss';
 
-function MainSection({apiKey}) {
-  // console.log(apiKey)
+function MainSection() {
   return (
     <div className={component.mainSection}>
-      <InputUrl apiKey={apiKey}/>
+      <InputUrl/>
       <FeatureHeading />
       <FeatureContainer />
-    </div>
+    </div>      
   );
 }
  

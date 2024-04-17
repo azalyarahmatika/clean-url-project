@@ -1,7 +1,24 @@
 @use '../abstracts/color';
 @use '../abstracts/mixins';
+@use '../abstracts/variables';
+
+.feature_heading {
+  text-align: center;
+  margin-block: 3rem 5rem;
+  color: color.$primary-dark-violet;
+
+  h2 {
+    font-family: 'Poppins Bold';
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: 'Poppins Medium';
+  }
+}
 
 .feature_container {
+  @include mixins.flex_horizontal;
   background: linear-gradient(
     to bottom,
     transparent 53.5%,
@@ -9,23 +26,18 @@
     transparent 56.5%
   );
   
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-
   position: relative;
   margin-bottom: 70px;
 
   .feature {
+    @include mixins.flex_vertical;
     background: white;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Poppins Medium';
     padding: 30px;
-    gap: 10px;
-    flex-basis: 31%;
-    border-radius: 4px;
-    height: fit-content;
+    border-radius: 6px;
     position: relative;
+    min-width: 280px;
+
     .feature_image {
       background: color.$primary-dark-violet;
       border-radius: 50%;
@@ -47,11 +59,10 @@
       margin-block: 1.8rem 0.8rem;
     }
 
-    .feature_description {
+    p {
       font-size: 0.9rem;
-      color: color.$neutral-very-dark-blue;
+      color: color.$primary-dark-violet;
       text-align: start;
-      padding-bottom: 0;
       font-family: 'Poppins Medium';     
       font-weight: 500;
     }
@@ -59,7 +70,6 @@
 
   .feature[id='Detailed Records'] {
     top: 50px;
-    
   }
 
   .feature[id='Fully Customizable'] {
@@ -67,27 +77,25 @@
   }
 }
 
-@media screen and (max-width: 1065px) {
+@media screen and (max-width: variables.$medium-min-width) {
   .feature_container {
+    @include mixins.flex_vertical;
     background: linear-gradient(
-    to right,
-    transparent 49.5%,
-    color.$primary-cyan 49.5% 50.5%,
-    transparent 50.5% 
+      to right,
+      transparent 49.5%,
+      color.$primary-cyan 49.5% 50.5%,
+      transparent 50.5% 
     );
-    flex-direction: column;
-    gap: 40px;
-  }
 
-  .feature {
-    h3, h5 {
-      text-align: center;
-    }    
-    
-  }
-
-  .feature_image {
-    left: 50%;
-    transform: translateX(-50%);
+    .feature {
+      h3, p {
+        text-align: center;
+      }  
+      
+      .feature_image {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    } 
   }
 }

@@ -1,15 +1,17 @@
 @use '../abstracts/color';
 @use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .cta {
+  @include mixins.flex_vertical;
   background-image: url('../../images/bg-boost-desktop.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-color: color.$primary-dark-violet;
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  padding-block: 50px;
+  gap: 0.5rem;
+  padding-block: 30px;
+  min-width: 100%;
 
   h2 {
     font-family: 'Poppins Bold';
@@ -18,14 +20,12 @@
   }
 
   button {
-    @include mixins.list;
-      border: none;
-      background-color: color.$primary-cyan;
-      color: white;
-      font-size: 1rem;
+    @include mixins.CTA_button;
+    border: none;
+    font-size: 1rem;
 
     &:hover {
-      @include mixins.button;
+      @include mixins.button_hover;
     }
   }
 }

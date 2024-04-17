@@ -1,10 +1,16 @@
 @use '../abstracts/color';
 
-@mixin flex-horizontal {
+@mixin flex_horizontal {
   display: flex;
-  gap: 2rem;
+  gap: 2.8rem;
   justify-content: space-between;
   align-items: center;
+}
+
+@mixin flex_vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 @mixin list {
@@ -16,7 +22,16 @@
   padding: 10px 20px;
 }
 
-@mixin button {
+@mixin CTA_button {
+  background-color: color.$primary-cyan;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: 'Poppins Bold';
+  border: none;
+}
+
+@mixin button_hover {
   color: white;
   cursor: pointer;
   background-color: #9CE2E2;

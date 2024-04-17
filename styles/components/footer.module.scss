@@ -1,23 +1,22 @@
 @use '../abstracts/color';
 @use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .footer {
-  padding: 5rem 9rem;
-  display: flex;
-  justify-content: space-between;
+  @include mixins.flex_horizontal;
+  align-items: start;
+  padding: 3rem variables.$large-inline-padding;
   background-color: color.$neutral-very-dark-violet;
 
   .footer_links {
+    @include mixins.flex_horizontal;
     color: white;
     text-align: left;
     font-family: "Poppins Medium";
     font-size: 0.8rem;
-    display: flex;
-    gap: 3rem;
+    align-items: start;
 
     .footer_links_group {
-      text-align: left;
-
       p {
         line-height: 1.5rem;
       }
@@ -35,8 +34,8 @@
   }
 
   .footer_contact {
-    display: flex;
-    gap: 20px;
+    @include mixins.flex_horizontal;
+    gap: 1rem;
 
     img {
       height: 20px;
@@ -51,22 +50,21 @@
   }
 }
 
-@media screen and (max-width: 1065px) {
+@media screen and (max-width: variables.$medium-min-width) {
   .footer {
-    flex-direction: column;
+    @include mixins.flex_vertical;
     align-items: center;
     gap: 50px;
   }
 
   .footer_links {
-    flex-direction: column;
+    @include mixins.flex_vertical;
 
     .footer_links_group {
+      margin: auto;
       p {
         text-align: center;
       }
-      
     }
   }
-  
 }

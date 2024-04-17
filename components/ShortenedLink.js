@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import component from '../styles/components/mainSection.module.scss';
+import component from '../styles/components/inputUrl.module.scss';
 import Image from 'next/image';
 import deleteIcon from '../images/icon-delete.svg';
 
@@ -28,8 +28,8 @@ function ShortenedLink(props) {
     <div className={component.link_wrapper}>
       <p>{props.longUrl}</p>
       <hr className={component.hr_line}></hr>
-      <div>
-        <p className={component.shortenedLink}>{props.shortUrl}</p>
+      <div className={component.shortUrl_wrapper}>
+        <p>{props.shortUrl}</p>
         <button className={buttonClass} onClick={copyToClipboard}>{copied ? 'Copied!' : 'Copy'}</button>
       </div>
       <Image

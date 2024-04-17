@@ -1,9 +1,10 @@
 @use '../abstracts/color';
 @use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .header {
-  @include mixins.flex-horizontal;
-  padding: 1.8rem 0 140px 9rem;
+  @include mixins.flex_horizontal;
+  padding: 50px + variables.$nav-height 0 140px variables.$large-inline-padding;
   font-family: 'Poppins Bold';
 
   .header_slogan {
@@ -23,16 +24,12 @@
     }
 
     button {
-      @include mixins.list;
-      border: none;
-      background-color: color.$primary-cyan;
-      color: white;
+      @include mixins.CTA_button;
       font-size: 1rem;
       
       &:hover {
-        @include mixins.button;
+        @include mixins.button_hover;
       }
-      
     }
   }
 
@@ -48,16 +45,15 @@
   
 }
 
-@media screen and (max-width: 835px) {
+@media screen and (max-width: variables.$small-min-width) {
   .header {
     flex-direction: column-reverse;
-    padding-left: 2rem;
-
+    padding-left: variables.$small-inline-padding;
   }
 
   .header_slogan {
     text-align: center;
-    padding-right: 2rem;
+    padding-right: variables.$small-inline-padding;
   }
 
   .header_jumbotron {

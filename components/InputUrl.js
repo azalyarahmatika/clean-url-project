@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from '../styles/components/mainSection.module.scss';
+import component from '../styles/components/inputUrl.module.scss';
 import ShortenedLink from './ShortenedLink';
 
 const postLink = async (url) => {
@@ -74,22 +74,25 @@ function InputUrl() {
 
   return (
     <>
-      <form className={styles.inputUrlForm} onSubmit={handleSubmit}>
-        <label htmlFor="shortenUrl"></label>
-        <input 
-          type="text" 
-          id="shortenUrl" 
-          name="shortenUrl" 
-          placeholder='Shorten a link here...' 
-          value={url}
-          onChange={handleChange}
-          className={error ? styles.inputError : ''}
-        />
-        {error && <p className={styles.error_message}><em>{error}</em></p>}
+      <form className={component.inputUrlForm} onSubmit={handleSubmit}>
+        <div className={component.inputUrl}>
+          <label htmlFor="shortenUrl"></label>
+          <input 
+            type="text" 
+            id="shortenUrl" 
+            name="shortenUrl" 
+            placeholder='Shorten a link here...' 
+            value={url}
+            onChange={handleChange}
+            className={error ? component.inputError : ''}
+          />
+          {error && <p className={component.error_message}><em>{error}</em></p>}
+        </div>
+
         <input type="submit" value="Shorten It!"  />
       </form>
       
-      <div className={styles.shortenedLinks_wrapper}>
+      <div className={component.shortenedLinks_wrapper}>
         {shortenedLinks.reverse().map((link, index) => (
           <ShortenedLink
             key={index}
@@ -99,7 +102,6 @@ function InputUrl() {
           />
         ))}
       </div>
-      
     </>
   );
 };

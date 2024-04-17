@@ -1,0 +1,201 @@
+@use '../abstracts/color';
+@use '../abstracts/mixins';
+@use '../abstracts/variables';
+@use '../components/mainSection.module.scss';
+
+.inputUrlForm {
+  @include mixins.flex_horizontal;
+  gap: 2rem;
+  position: relative;
+  top: -50px;
+  height: 100px;
+  min-width: 100%;
+  padding: 2rem;
+  background-color: color.$primary-dark-violet;
+  background-image: url('../../images/bg-shorten-desktop.svg');
+  border-radius: 8px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .inputUrl {
+    position: relative;
+    flex-basis: 85%;
+
+    input {
+      height: 46px;
+      border-radius: 8px;
+      border: 8px;
+      font-size: 1rem;
+      min-width: 100%;
+    }
+
+    input::placeholder {
+      color: color.$neutral-gray;
+    }
+
+    input[type='text'] {
+      padding-left: 30px;
+      font-weight: 600;
+    
+      &:focus {
+        outline: 3px solid color.$primary-cyan;
+        border: none;
+      }
+    }
+
+    .error_message {
+      position: absolute;
+      top: 45px;
+      font-size: 0.75rem;
+      color: color.$primary-red;
+      font-family: 'Poppins Medium';
+    }
+
+    .inputError {
+      border: 2px solid color.$primary-red;
+    }
+
+    .inputError:focus::placeholder {
+      color: transparent;
+    }
+  }
+  
+  input[type='submit'] {
+    @include mixins.CTA_button;
+    border-radius: 8px;
+    flex-basis: 10%;
+    font-weight: 700;
+    background-color: color.$primary-cyan;
+    width: 100%;
+    height: 46px;
+
+    &:hover {
+      @include mixins.button_hover;
+      color: white;
+    }
+  }
+}
+
+.shortenedLinks_wrapper {
+    position: relative;
+    top: -40px;
+    font-family: 'Poppins Bold';
+
+  .link_wrapper {
+    @include mixins.flex_horizontal;
+    position: relative;
+    background-color: white;
+    padding: 1.125rem 2rem;
+    border-radius: 8px;
+    margin-top: 10px;
+
+    p {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+      
+    > p {
+      color: color.$primary-dark-violet;
+    }
+
+    &:hover .deleteIcon {
+      display: block;
+      cursor: pointer;
+    }
+
+    .shortUrl_wrapper {
+      @include mixins.flex_horizontal;
+
+      > p {
+        color: color.$primary-cyan;
+      }
+
+      button {
+        @include mixins.CTA_button;
+        border-radius: 6px;
+  
+        &:hover {
+          @include mixins.button_hover;
+        }
+      }
+
+      .copiedButton {
+        background-color: color.$primary-dark-violet;
+      }
+    }
+
+    .deleteIcon {
+      position: absolute;
+      right: -16px;
+      top: 0;
+      cursor: pointer;
+      display: none;
+      opacity: 0.6;
+      filter: brightness(0) saturate(100%) invert(18%) sepia(20%) saturate(1272%) hue-rotate(217deg) brightness(96%) contrast(91%);
+  
+      &:hover {
+        opacity: 0.9;
+      }
+    }      
+  } 
+}
+
+@media screen and (max-width: variables.$small-min-width) {
+  .inputUrlForm {
+    @include mixins.flex_vertical;
+    height: 130px;
+    padding: 1rem;
+    gap: 1rem;
+    top: -65px;
+    min-width: 280px;
+      
+    .inputUrl {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  .shortenedLinks_wrapper {
+    .link_wrapper {
+      @include mixins.flex_vertical;
+      gap: 1rem;
+
+      p {
+        max-width: 100%;
+      }
+
+      .hr_line {
+        height: 1px; 
+        background-color: color.$neutral-gray; 
+        border: none;         
+        width: 100%;
+      }
+      
+      .shortUrl_wrapper {
+        @include mixins.flex_vertical;
+        gap:0.75rem;
+        
+
+        
+        
+      }     
+    }
+  }
+}
+
+
+// @media screen and (max-width: variables.$tiny-min-width) {
+//   .inputUrlForm {
+//     padding-inline: variables.$tiny-inline-padding;
+   
+//       background-color: red;
+
+//   }
+
+//     .inputUrl {
+//       width: 100%;
+      
+//     }
+// }

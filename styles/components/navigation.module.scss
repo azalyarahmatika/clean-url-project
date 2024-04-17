@@ -1,112 +1,103 @@
 @use '../abstracts/color';
 @use '../abstracts/mixins';
+@use '../abstracts/variables';
 
 .nav {
-  @include mixins.flex-horizontal;
-  position: relative;
-  padding: 1.8rem 9rem;
+  @include mixins.flex_horizontal;
+  height: variables.$nav-height;
+  position: fixed;
+  background: white;
+  min-width: 100%;
+  z-index: 100;
+  padding: 0 variables.$large-inline-padding;
   font-family: 'Poppins Bold';
   
-  ul, .nav_menu {
-    @include mixins.flex-horizontal;
-  }
+  .nav_link_wrapper {
+    @include mixins.flex_horizontal;
+    flex-basis: 80%;
 
-  .nav_menu li, .nav_auth li {
-    @include mixins.list;
-    
-    &:hover {
-      color: color.$neutral-very-dark-violet;
-      cursor: pointer;
-      background: none;
+    ul {
+      @include mixins.flex_horizontal;
+      list-style: none;
+      color: color.$neutral-grayish-violet;
+
+      li {
+        &:hover {
+          color: color.$neutral-very-dark-violet;
+          cursor: pointer;
+        }
+      }
+
+      li[id='signUp'] {
+        @include mixins.CTA_button;
+
+        &:hover {
+          @include mixins.button_hover;
+        }
+      }
     }
-  }
-
-  .nav_auth .nav_auth_signUp {
-    background-color: color.$primary-cyan;
-    color: white;
-  
-    &:hover {
-      @include mixins.list;
-      @include mixins.button;
-    }
-  }
-  
-  
-}
-
-.nav_small {
-  display: none;
-}
-
-.nav_none {
-  display: none;
-}
-
-.nav_toggle {
-  display: block;
-  position: sticky;
-  padding: 2rem;
-  margin-inline: 9rem;
-  background: color.$primary-dark-violet;
-  color: white;
-  font-family: 'Poppins Bold';
-  text-align: center;
-  line-height: 3rem;
-  // margin-right: 9rem;
-  // width: 100%;
-  z-index: 200;
-
-  hr {
-    margin-block: 10px;
-  }
-
-  ul {
-    list-style: none;
-  }
-  // top: 100px;
-
-  .nav_auth_signUp {
-    background-color: color.$primary-cyan;
-    color: white;
-    border-radius: 50px;
-  
-    &:hover {
-      @include mixins.list;
-      @include mixins.button;
-    }
-  }
-}
-
-@media screen and (max-width: 1065px) {
-  .nav_menu ul {
-    display: none;
-  }
-
-  .nav_auth li {
-    display: none;
-  }
-
- .nav_small {
-    display: block;
-    position: absolute;
-    z-index: 100;
-    right: 9rem;
-  }
-}
-
-@media screen and (max-width: 835px) {
-  .nav {
-    padding: 1.8rem 2rem;
   }
 
   .nav_small {
-    right: 2rem;
+    display: none;
   }
 }
 
+@media screen and (max-width: variables.$medium-min-width) {
+ .nav {
+  .nav_link_wrapper {
+    display: none;
+  }
 
-@media screen and (max-width: 835px) {
+  .nav_small {
+    display: block;
+  }
+
   .nav_toggle {
-    margin-inline: 2rem;
+    top: variables.$nav-height;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: color.$primary-dark-violet;
+    display: block;
+    position: absolute;
+    padding: 2rem;
+    min-width: calc(100vw - 2*variables.$large-inline-padding);
+    border-radius: 12px;
+    
+    ul {
+      @include mixins.flex_vertical;
+      line-height: 1rem;
+      color: white;
+    }
+
+    ul[id='link_menu'] {
+      padding-bottom: 25px;
+      border-bottom: 1px solid color.$neutral-gray;
+    }
+
+    ul:not([id='link_menu']) {
+      margin-top: 25px;
+    }
+  } 
+ }
+ 
+}
+
+@media screen and (max-width: variables.$small-min-width) {
+  .nav {
+    padding: 1.8rem variables.$small-inline-padding;
+
+    .nav_toggle {
+      min-width: calc(100vw - 2*variables.$small-inline-padding);
+    }
+  }
+}
+
+@media screen and (max-width: variables.$tiny-min-width) {
+  .nav {
+    padding: 1.8rem variables.$tiny-inline-padding;
+    .nav_toggle {
+      min-width: calc(100vw - 2*variables.$tiny-inline-padding);
+    }
   }
 }
