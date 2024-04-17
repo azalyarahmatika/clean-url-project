@@ -10,20 +10,19 @@
   background-color: color.$primary-dark-violet;
   align-items: center;
   gap: 0.5rem;
-  padding-block: 30px;
+  padding-block: 3rem;
   min-width: 100%;
 
   h2 {
     font-family: 'Poppins Bold';
     color: white;
-    margin-block: 22px 16px;
+    margin-bottom: 16px;
   }
 
   button {
     @include mixins.CTA_button;
     border: none;
     font-size: 1rem;
-    margin-bottom: 22px;
 
     &:hover {
       @include mixins.button_hover;

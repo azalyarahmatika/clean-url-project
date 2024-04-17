@@ -5,7 +5,7 @@
 
 .inputUrlForm {
   @include mixins.flex_horizontal;
-  gap: 2rem;
+  gap: 20px;
   position: relative;
   top: -50px;
   height: 100px;
@@ -146,9 +146,9 @@
     @include mixins.flex_vertical;
     height: 130px;
     padding: 1rem;
-    gap: 1rem;
+    gap: 20px;
     top: -65px;
-    min-width: 280px;
+    min-width: 250px;
       
     .inputUrl {
       width: 100%;
@@ -160,7 +160,7 @@
   .shortenedLinks_wrapper {
     .link_wrapper {
       @include mixins.flex_vertical;
-      gap: 1rem;
+      gap: 20px;
 
       p {
         max-width: 100%;
@@ -175,7 +175,7 @@
       
       .shortUrl_wrapper {
         @include mixins.flex_vertical;
-        gap:0.75rem;
+        gap:10px;
         
 
         
@@ -184,18 +184,3 @@
     }
   }
 }
-
-
-// @media screen and (max-width: variables.$tiny-min-width) {
-//   .inputUrlForm {
-//     padding-inline: variables.$tiny-inline-padding;
-   
-//       background-color: red;
-
-//   }
-
-//     .inputUrl {
-//       width: 100%;
-      
-//     }
-// }
