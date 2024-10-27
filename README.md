@@ -34,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/azalyarahmatika/clean-url-project)
-- Live Site URL: [Add live site URL here](hhttps://clean-url-project.vercel.app/)
+- Solution URL: [Github Repo](https://github.com/azalyarahmatika/clean-url-project)
+- Live Site URL: [Vercel](hhttps://clean-url-project.vercel.app/)
 
 ## My process
 
@@ -56,4 +56,4 @@ I'm planning to evolve this project into a full-stack application with additiona
 ## Author
 
 - Website - [Azalya Rahmatika](https://www.azalyarahmatika.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/azalyarahmatika)
+- Frontend Mentor - [@azalyarahmatika](https://www.frontendmentor.io/profile/azalyarahmatika)
